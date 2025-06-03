@@ -1,6 +1,6 @@
 export interface RepoState {
   repos: any[];
-  username: string
+  urlRepo: string
   total: number;
   currentPage: number;
   loading: boolean;

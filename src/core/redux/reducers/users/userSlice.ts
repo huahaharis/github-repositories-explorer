@@ -19,7 +19,7 @@ const userSlice = createSlice({
       state.currentPage = action.payload.total;
       state.loading = true;
     },
-    fetchUsersSuccess(state, action: PayloadAction<{ users: any[]; total: number }>) {
+    fetchUsersSuccess(state, action: PayloadAction<{ users: any[]; total: number, error: string, status: string, message: string }>) {
       state.users = action.payload.users;
       state.total = action.payload.total;
       state.loading = false;

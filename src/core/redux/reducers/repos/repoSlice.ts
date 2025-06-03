@@ -3,7 +3,7 @@ import type { RepoState } from '../../../model/repoTypes';
 
 const initialState: RepoState = {
   repos: [],
-  username: '',
+  urlRepo: '',
   total: 0,
   currentPage: 1,
   loading: false,
@@ -15,7 +15,7 @@ const repoSlice = createSlice({
   initialState,
   reducers: {
     fetchReposStart(state, action: PayloadAction<{urlRepo: string}>) {
-      state.username = action.payload.urlRepo;
+      state.urlRepo = action.payload.urlRepo;
       state.loading = true;
     },
     fetchReposSuccess(state, action: PayloadAction<{ repos: any[]; total: number }>) {

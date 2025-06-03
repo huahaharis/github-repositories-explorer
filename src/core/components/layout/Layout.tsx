@@ -2,25 +2,39 @@ import { Outlet } from 'react-router-dom';
 import SearchBar from '../search/Search';
 import { useDispatch } from 'react-redux';
 import { fetchUsersStart } from '../../redux/reducers/users/userSlice';
+import { Alert } from 'antd';
 
 export default function Layout() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const findData = async(query:string) => {
-      let payload= {
+  const findData = async (query: string) => {
+    if (query !== "") {
+      let payload = {
         username: query,
         total: 1
       }
       dispatch(fetchUsersStart(payload));
     }
+    if (query === "") {
+      return (
+        <Alert
+          message="Error"
+          description="Error"
+          type="error"
+          showIcon
+          className="m-4 overflow-auto"
+        />
+      );
+    }
+  }
 
   return (
-    <div className="flex flex-col bg-amber-100 w-screen h-screen">
+    <div className="flex flex-col bg-[#F1F1F1] w-screen h-screen">
       {/* Header */}
       <header className=" text-white p-4">
-        <SearchBar 
-            placeholder='Input user here...'
-            onSearch={findData}
+        <SearchBar
+          placeholder='Input user here...'
+          onSearch={findData}
         />
       </header>
 

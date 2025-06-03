@@ -6,7 +6,7 @@ import type { SagaIterator } from 'redux-saga';
 function* fetchUsersSaga(action: ReturnType<typeof fetchUsersStart>): SagaIterator {
   try {
     const param = action.payload;
-    const data = yield call(fetchUsersApi, param.username, param.total);
+    const data = yield call(fetchUsersApi, param.username, param.total); 
     yield put(fetchUsersSuccess(data));
   } catch (error: any) {
     yield put(fetchUsersFailure(error.message));
