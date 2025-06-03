@@ -7,13 +7,11 @@ type SearchBarProps = {
   initialValue?: string;
 };
 
-const { Search } = Input
-
 const SearchBar: React.FC<SearchBarProps> = ({ placeholder = 'Search...', onSearch }) => {
   return (
-      <Search
+      <Input
         type="text"
-        onSearch={onSearch}
+        onChange={(e:any)=> onSearch(e)}
         placeholder={placeholder}
       />
   );

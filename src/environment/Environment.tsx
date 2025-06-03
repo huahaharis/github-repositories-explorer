@@ -8,4 +8,11 @@ const github = axios.create({
   },
 });
 
+axios.interceptors.response.use(
+  res => res,
+  err => {
+    return Promise.reject(err);
+  }
+);
+
 export default github;

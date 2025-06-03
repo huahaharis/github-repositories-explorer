@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { call, put, debounce } from 'redux-saga/effects';
 import { fetchUsersStart, fetchUsersSuccess, fetchUsersFailure } from './userSlice';
 import { fetchUsersApi } from './userApi';
 import type { SagaIterator } from 'redux-saga';
@@ -14,5 +14,5 @@ function* fetchUsersSaga(action: ReturnType<typeof fetchUsersStart>): SagaIterat
 }
 
 export default function* userSaga() {
-  yield takeLatest(fetchUsersStart.type, fetchUsersSaga);
+  yield debounce(500,fetchUsersStart.type, fetchUsersSaga);
 }

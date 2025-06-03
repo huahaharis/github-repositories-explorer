@@ -6,8 +6,6 @@ type CardProps = {
 };
 
 const CardRepo: React.FC<CardProps> = ({data}) => {
-    console.log(data);
-    
     return <>
         {data?.map((res, index) => {
             return (

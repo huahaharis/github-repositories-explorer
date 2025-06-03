@@ -49,8 +49,6 @@ const Home: React.FC = () => {
   };
 
   const getRepositories = async (query: string) => {
-    console.log("klik");
-    
     let payload = {
       urlRepo: query,
     }
@@ -90,7 +88,7 @@ const Home: React.FC = () => {
             onPageChange={changePage}
           />
         </>
-      ) : (<div></div>)
+      ) : (<div className='flex justify-center align-middle'>Data not found</div>)
       }
     </>
   );
